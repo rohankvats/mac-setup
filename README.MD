@@ -5,9 +5,9 @@
     <img src="https://user-images.githubusercontent.com/35331661/37242209-c5d740cc-2465-11e8-92b3-e6d786e98dda.jpg" width="125px">
   </a>
   <br>
-  <h1>Mac Setup</h1>
+  <h1> Mac Setup</h1>
   <p>
-    <em>Front End Web Development Setup for macOS</em>
+    <em>Front End Web Development Setup for  macOS</em>
   </p>
   <p>
     <a href="https://github.com/rohankvats/mac-setup/stargazers">
@@ -30,29 +30,34 @@
 This document describes how I set up my developer environment on a new MacBook or iMac. We will set up the terminal, Node (JavaScript) environments, mainly for JavaScript development. As you read  and follow these steps, feel free to send me any feedback or comments you may have. The document assumes you are new to Mac. The steps below were tested on OS X Mountain Lion.
 
 ---
-    ## Table of Contents
-    
-	- [System update](#system-update)
-	- [System preferences](#system-preferences)
-	- [Google Chrome](#google-chrome)
-	- [iTerm2](#iterm2)
-	- [Homebrew](#homebrew)
-	- [Consolas](#consolas)
-	- [Beautiful terminal](#beautiful-terminal)
-	- [iTerm2](#iterm2)
-	- [Git](#git)
-	- [Sublime Text](#sublime-text)
-	- [Vim](#vim)
-	- [Node.js](#nodejs)
-	- [Apps](#apps)
+## Table of Contents
+
+- [System preferences](#system-preferences)
+- [Google Chrome](#google-chrome)
+- [iTerm2](#iterm2)
+- [Homebrew](#homebrew)
+- [Consolas](#consolas)
+- [Beautiful terminal](#beautiful-terminal)
+- [iTerm2](#iterm2)
+- [Git](#git)
+- [Editors](#editors)
+- [Vim](#vim)
+- [Node.js](#nodejs)
+- [Apps](#apps)
+    - [Note-taking](#Note-taking)
+    - [IDEs](IDEs)
+    - [Developer Utilities](#Developer-Utilities)
+    - [Regular Expression Editors](#Regular-Expression-Editors)
+    - API Development and Analysis
+    - Virtualization
+    - Remote Login Software
+    - Quality of Life Improvements
+    - System Related Tools
+    - Gaming Software
 ---
  
 
-If you have any comments or suggestions, feel free to give me a shout on Twitter!
-
-## System update
-
-First thing you need to do, on any OS actually, is update the system! For that: *Apple Icon > Software Update...*
+If you have any comments or suggestions, feel free to give me a shout on [Twitter](https://twitter.com/rohankvats)!
 
 ## System preferences
 
@@ -221,7 +226,15 @@ To push code to your GitHub repositories, we're going to use the recommended HTT
     $ git config --global credential.helper osxkeychain
     
 *Note*: On a Mac, it is important to remember to add `.DS_Store` (a hidden OS X system file that's put in folders) to your `.gitignore` files. You can take a look at this repository's [.gitignore](https://github.com/nicolashery/mac-dev-setup/blob/master/.gitignore) file for inspiration.
-    
+
+## Editors
++ **[Sublime Text](https://www.sublimetext.com/)**: the text editor is a developer's most important tool. Everyone has their preferences, but unless you're a hardcore [Vim](http://en.wikipedia.org/wiki/Vim_(text_editor)) user, a lot of people are going to tell you that [Sublime Text](http://www.sublimetext.com/) is currently the best one out there.
+    - [Must Have Plugins for Sublime Text](https://github.com/rohankvats/mac-setup/blob/master/editor-plugin.md#sublime-text-plugin)
++ **[Atom](https://atom.io/)**: Atom is a text editor that's modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file.
+    - [Must Have Plugins for Atom](https://github.com/rohankvats/mac-setup/blob/master/editor-plugin.md#atom-plugin)
++ **[Brackets](http://brackets.io/)**: An open source code editor for the web, written in JavaScript, HTML and CSS.
++ **[Visual Studio Code](https://code.visualstudio.com/)**: Build and debug modern web and cloud applications. VS Code is free and available on your favorite platform - Linux, Mac OSX, and Windows.
+
 ## Sublime Text
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but unless you're a hardcore [Vim](http://en.wikipedia.org/wiki/Vim_(text_editor)) user, a lot of people are going to tell you that [Sublime Text](http://www.sublimetext.com/) is currently the best one out there.
 
@@ -323,51 +336,6 @@ And finally, install the Vim "sensible defaults" by running:
 
 With that, Vim will look a lot better next time you open it!
 
-## MySQL
-
-### Install
-
-We will install [MySQL](http://www.mysql.com/) using Homebrew, which will also install some header files needed for MySQL bindings in different programming languages (MySQL-Python for one).
-
-To install, run:
-
-    $ brew update # Always good to do
-    $ brew install mysql
-
-As you can see in the ouput from Homebrew, before we can use MySQL we first need to set it up with:
-
-    $ unset TMPDIR
-    $ mkdir /usr/local/var
-    $ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
-
-### Usage
-
-To start the MySQL server, use the `mysql.server` tool:
-
-    $ mysql.server start
-    
-To stop it when you are done, run:
-
-    $ mysql.server stop
-    
-You can see the different commands available for `mysql.server` with:
-
-    $ mysql.server --help
-    
-To connect with the command-line client, run:
-
-    $ mysql -uroot
-    
-(Use `exit` to quit the MySQL shell.)
-
-*Note*: By default, the MySQL user `root` has no password. It doesn't really matter for a local development database. If you wish to change it though, you can use `$ mysqladmin -u root password 'new-password'`.
-
-### MySQL Workbench
-
-In terms of a GUI client for MySQL, I'm used to the official and free [MySQL Workbench](http://www.mysql.com/products/workbench/). But feel free to use whichever you prefer.
-
-You can find the MySQL Workbench download [here](http://www.mysql.com/downloads/workbench/). (*Note*: It will ask you to sign in, you don't need to, just click on "No thanks, just start my download!" at the bottom.)
-
 ## Node.js
 
 Install [Node.js](http://nodejs.org/) with Homebrew:
@@ -426,7 +394,7 @@ To uninstall a package:
 
     $ npm uninstall <package>
 
-##JSHint
+## JSHint
 
 JSHint is a JavaScript developer's best friend. 
 
@@ -439,18 +407,116 @@ Install JSHint via npm (global install preferred)
 Follow additional instructions on the [JSHint Package Manager page](https://sublime.wbond.net/packages/JSHint) or [build it manually](https://github.com/jshint/jshint).
 
 ## Projects folder
-This really depends on how you want to organize your files, but I like to put all my version-controlled projects in `~/Projects`. Other documents I may have, or things not yet under version control, I like to put in `~/Dropbox` (if you have Dropbox installed), or `~/Documents`.
+This really depends on how you want to organize your files, but I like to put all my personal version-controlled projects in `~/Projects` an d Other organisation projects I may have, or things not yet under version control in `~/<Company-name>`.
 
 ## Apps
 Here is a quick list of some apps I use, and that you might find useful as well:
 
-- [Dropbox](https://www.dropbox.com/): File syncing to the cloud. I put all my documents in Dropbox. It syncs them to all my devices (laptop, mobile, tablet), and serves as a backup as well! *(Free for 2GB)*
-- [Google Drive](https://drive.google.com/): File syncing to the cloud too! I use Google Docs a lot to collaborate with others (edit a document with multiple people in real-time!), and sometimes upload other non-Google documents (pictures, etc.), so the app comes in handy for that. *(Free for 5GB)*
-- [1Password](https://agilebits.com/onepassword): Allows you to securely store your login and passwords. Even if you only use a few different passwords (they say you shouldn't!), this is really handy to keep track of all the accounts you sign up for! Also, they have a mobile app so you always have all your passwords with you (syncs with Dropbox). A little pricey though. There are free alternatives. *($50 for Mac app, $18 for iOS app)*
-- [Marked](http://markedapp.com/): As a developer, most of the stuff you write ends up being in [Markdown](http://daringfireball.net/projects/markdown/). In fact, this `README.md` file (possibly the most important file of a GitHub repo) is indeed in Markdown, written in Sublime Text, and I use Marked to preview the results everytime I save. *($4)*
-- [Path Finder](http://cocoatech.com/pathfinder/): I love OSX, it's Unix so great for developers, and all of it just works and looks pretty! Only thing I "miss" from Windows (OMG what did he say?), is a decent file explorer. I think Finder is a pain to use. So I gladly paid for this alternative, but I understand others might find it expensive just to not have to use Finder. *($40)*
-- [Evernote](https://evernote.com/): If I don't write something down, I'll forget it. As a developer, you learn so many new things every day, and technology keeps changing, it would be insane to want to keep it all in your head. So take notes, sync them to the cloud, and have them on all your devices. To be honest, I switched to [Simplenote](http://simplenote.com/) because I only take text notes, and I got tired of Evernote putting extra spaces between paragraphs when I copy & pasted into other applications. Simplenote is so much better for text notes (and it supports Markdown!). *(Both are free)*
-- [Moom](http://manytricks.com/moom/): Don't waste time resizing and moving your windows. Moom makes this very easy. *($10)*
+![Open-Source Software][OSS Icon] means **open source**, click to open **open source** repo;  
+![Freeware][Freeware Icon] means **free** to use, or **free** personal license;  
+![hot][hot Icon] means **hot** app;  
+![Recommend][tuijian Icon] means **recommended** app;  
+![Must Have][bibei Icon] means **must have** app;  
+![App Store][app-store Icon] means **App store** hyperlink;  
+![1 star][red Icon] means highly recommended, must-have app. The number of stars represents how strongly I recommend it;
+
+
+#### Note-taking
+* [Bear Writer](http://www.bear-writer.com/) - Beautiful, flexible writing app for crafting notes and prose. [![App Store][app-store Icon]](https://itunes.apple.com/us/app/bear-beautiful-writing-app/id1091189122?ls=1&mt=12)
+* [Boostnote](https://boostnote.io/) - Note-taking app made for programmers. [![Open-Source Software][OSS Icon]](https://github.com/BoostIO/Boostnote) ![Recommend][tuijian Icon]
+* [Evernote](https://evernote.com/) - Infamous note-taking app, available on many platforms. ![Freeware][Freeware Icon] ![hot][hot Icon] ![Recommend][tuijian Icon] ![Must Have][bibei Icon]
+
+#### IDEs
+
+- [Atom](https://atom.io/): Hackable text editor for the 21st century made by GitHub. Atom Plugins. star 4 Open-Source Software Freeware hot Recommend must-have
+* [Visual Studio Code](https://code.visualstudio.com/) - Microsoft's free & open-source editor, TypeScript friendly, [VSCode Plugins](editor-plugin.md#vscode-plugin). [![Open-Source Software][OSS Icon]](https://github.com/Microsoft/vscode) ![Freeware][Freeware Icon] ![hot][hot Icon]
+* [WebStorm](http://www.jetbrains.com/webstorm/) - The smartest JavaScript IDE by JetBrains. **FREE** for Students, check [here](https://www.jetbrains.com/student/) for more info. ![hot][hot Icon] ![Recommend][tuijian Icon]
+    * [NodeJS Plugin](https://plugins.jetbrains.com/plugin/6098-nodejs) - `Node.js` integration. You definitely need this, quite a few features require it.
+    * [EditorConfig Plugin](https://plugins.jetbrains.com/plugin/7294-editorconfig) - JetBrains IDE plugin supporting the EditorConfig standard.
+    * [Material Theme UI Plugin](https://plugins.jetbrains.com/plugin/8006-material-theme-ui) - Provides 3 modes, nice and clean.
+
+#### Developer Utilities
+
+* [BetterRename](http://www.publicspace.net/BetterRename/) - The most powerful and complete Mac file renaming application on the market. [![App Store][app-store Icon]](https://itunes.apple.com/us/app/better-rename-9/id414209656)
+* [Dash](https://kapeli.com/dash) - Awesome API documentation browser and code snippet manager. ![Freeware][Freeware Icon] ![hot][hot Icon] ![Recommend][tuijian Icon] ![must-have][bibei Icon] ![star 5][star5 Icon]
+* [DiffMerge](http://sourcegear.com/diffmerge/) - Application to visually compare and merge files. ![Freeware][Freeware Icon]
+* [EnvPane](https://github.com/hschmidt/EnvPane) - OS X preference pane for environment variables. [![Open-Source Software][OSS Icon] ![Freeware][Freeware Icon]](https://github.com/hschmidt/EnvPane)
+* [FinderGo](https://github.com/onmyway133/FinderGo) - Open terminal quickly from Finder. [![Freeware][Freeware Icon] ![Open-Source Software][OSS Icon]](https://github.com/onmyway133/FinderGo)
+* [SnippetsLab](https://www.renfei.org/snippets-lab/) - Easy-to-use code snippets manager.
+* [zeplin](https://www.zeplin.io/) - Collaboration tool for work between designers and developers. ![Freeware][Freeware Icon] ![hot][hot Icon]
+
+#### Regular Expression Editors
+
+* [Patterns](http://krillapps.com/patterns/) - Regular expression editor. ![Recommend][tuijian Icon]
+* [RegExRX](http://www.mactechnologies.com/index.php?page=downloads#regexrx) - Development tool for regular expressions. ![hot][hot Icon]
+* [Regex](https://motionobj.com/regex/) - Regular expression testing tool with an emphasis on simplicity.
+
+#### API Development and Analysis
+
+* [Cocoa Rest Client](https://mmattozzi.github.io/cocoa-rest-client/) - Free, open-source, native Apple OS X app for testing HTTP/REST endpoints. [![Open-Source Software][OSS Icon]](https://github.com/mmattozzi/cocoa-rest-client) ![Freeware][Freeware Icon]
+* [Insomnia](https://insomnia.rest/) - The most intuitive cross-platform REST API Client. [![Open-Source Software][OSS Icon]](https://github.com/getinsomnia/insomnia) ![Freeware][Freeware Icon]
+* [Postman](https://www.getpostman.com) - Powerful GUI platform to make your API development faster & easier, from building API requests through testing, documentation and sharing. ![star 4][star4 Icon]![Freeware][Freeware Icon] ![hot][hot Icon] ![must-have][bibei Icon]
+
+#### Virtualization
+
+* [Docker](https://www.docker.com/) - Powerful, performs operating-system-level virtualization. [![Open-Source Software][OSS Icon]](https://github.com/github/hub) ![Freeware][Freeware Icon] ![Recommend][tuijian Icon]
+* [Virtual Box](http://www.virtualbox.org) - Powerful x86 and AMD64/Intel64 virtualization product. ![star 4][star4 Icon] ![Freeware][Freeware Icon] ![Recommend][tuijian Icon]
+* [Vagrant](https://www.vagrantup.com) - Tool for building and distributing development environments. [![Open-Source Software][OSS Icon]](https://github.com/mitchellh/vagrant) ![Freeware][Freeware Icon] ![star 5][star5 Icon]
+* [Vagrant Manager](http://vagrantmanager.com) - Manage your vagrant machines in one place. [![Open-Source Software][OSS Icon] ![Freeware][Freeware Icon]](https://github.com/lanayotech/vagrant-manager/)
+
+#### Remote Login Software
+
+* [TeamViewer](https://www.teamviewer.com/en) - Proprietary computer software package for remote control, desktop sharing, online meetings, web conferencing and file transfer between computers. ![Freeware][Freeware Icon] ![Recommend][tuijian Icon] ![must-have][bibei Icon] ![star 4][star4 Icon]
+
+#### Quality of Life Improvements
+
+* [CheatSheet](https://www.mediaatelier.com/CheatSheet/) -  Hold the ⌘-Key to get a list of all active shortcuts of the current application. It's as simple as that. ![star 4][star4 Icon] ![Freeware][Freeware Icon]
+* [f.lux](https://justgetflux.com/) - Makes the color of your computer's display adapt to the time of day. ![Freeware][Freeware Icon]
+* [KeyCastr](https://github.com/keycastr/keycastr) - Open-source keystroke visualizer.  [![Open-Source Software][OSS Icon]](https://github.com/keycastr/keycastr) ![Freeware][Freeware Icon]
+* [Shifty](http://shifty.natethompson.io) - A macOS menu bar app that gives you more control over Night Shift. [![Open-Source Software][OSS Icon]](https://github.com/thompsonate/Shifty)
+* [Snap](http://indragie.com/snap) - Launch an app in a snap. Ridiculously easy shortcut management. ![Freeware][Freeware Icon] [![App Store][app-store Icon]](https://itunes.apple.com/cn/app/id418073146)
+
+#### System Related Tools
+
+* [AppCleaner](http://freemacsoft.net/appcleaner/) - Small application which allows you to thoroughly uninstall unwanted apps. ![Freeware][Freeware Icon] ![Recommend][tuijian Icon]
+* [Caffeine](http://lightheadsw.com/caffeine/) - Don't let your Mac fall asleep!
+* [Cleaner for Xcode](https://github.com/waylybaye/XcodeCleaner) - Helps make your Xcode faster by removing unwanted and deprecated files. [![Open-Source Software][OSS Icon]](https://github.com/waylybaye/XcodeCleaner) ![Freeware][Freeware Icon] ![tuijian][tuijian Icon]
+* [Coolant](https://coolantformac.com) - Menubar app that lets you know when an app is consuming 100% CPU or more than a gigabyte of memory (or any arbitrary limits you choose).
+* [DaisyDisk](https://daisydiskapp.com/) - Gives a great overview of disk usage. Can also make more disk-space available by cleaning up your disk.
+* [gfxCardStatus](https://gfx.io/) - Unobtrusive menu bar app for OS X that allows MacBook Pro users to see which apps are affecting their battery life by using the more power-hungry graphics. ![Freeware][Freeware Icon] ![Recommend][tuijian Icon]
+* [HandShaker](http://www.smartisan.com/apps/handshaker) -  Mac on the management of Android mobile phone content. ![Freeware][Freeware Icon]
+* [HTML5 Player](http://zythum.sinaapp.com/youkuhtml5playerbookmark/) - HTML 5 video player. Keep your Mac from "burning".
+* [InsomniaX](https://www.macupdate.com/app/mac/22211/insomniax) - Disable either lid and/or idle sleep (so you can play music with your lid closed, for example).
+* [iStat Menus](https://bjango.com/mac/istatmenus/) - Advanced Mac system monitor on the menubar. ![Recommend][tuijian Icon]
+* [iStats](https://github.com/Chris911/iStats) - Command-line tool that allows you to easily grab the CPU temperature, fan speeds and battery information on OSX. [![Open-Source Software][OSS Icon] ![Freeware][Freeware Icon]](https://github.com/Chris911/iStats)
+* [Juice](https://github.com/brianmichel/Juice) - Make your battery information a bit more interesting. [![Open-Source Software][OSS Icon]](https://github.com/brianmichel/Juice) ![Freeware][Freeware Icon]
+* [KeepingYouAwake](https://github.com/newmarcel/KeepingYouAwake) - Alternative to Caffeine with better support for dark mode in Mac. [![Open-Source Software][OSS Icon]](https://github.com/newmarcel/KeepingYouAwake)
+* [Monity](http://www.monityapp.com/) - System monitoring widget for OS X. ![star 3][star3 Icon]
+* [Mounty](http://enjoygineering.com/mounty/) - Tiny tool to re-mount write-protected NTFS volumes under Mac OS X 10.9+ in read-write mode. ![Freeware][Freeware Icon]
+* [NitroShare](https://nitroshare.net/) - Cross-platform network file transfer utility. [![Open-Source Software][OSS Icon]](https://github.com/nitroshare/nitroshare-desktop) ![Freeware][Freeware Icon]
+* [OmniDiskSweeper](https://www.omnigroup.com/more) - Shows you the files on your drive, ordered by size. It can be used to find and remove unused files.  ![Freeware][Freeware Icon] ![Recommend][tuijian Icon]
+* [Paragon NTFS](https://www.paragon-software.com/home/ntfs-mac/) - Read/write access to NTFS in macOS Sierra.
+* [Porting Kit](http://portingkit.com/) - Install Windows® Games inside your Mac. ![Freeware][Freeware Icon]
+* [SSH Tunnel](https://codinn.com/products/ssh-tunnel/) - Application for managing SSH connections.
+* [Tuxera NTFS](http://www.tuxera.com/products/tuxera-ntfs-for-mac/) - Full read-write compatibility with NTFS-formatted drives on a Mac.
+
+
+#### Gaming Software
+
+* [OpenEmu](http://openemu.org/) - A great video game console emulator, supports many different emulators in a single application. (e.g. Sony PSP, GameBoy, NDS and so on) [![Open-Source Software][OSS Icon] ![Freeware][Freeware Icon] ![Recommend][tuijian Icon]](https://github.com/OpenEmu/OpenEmu)
 
 
 
+[OSS Icon]: https://jaywcjlove.github.io/sb/ico/min-oss.svg
+[Freeware Icon]: https://jaywcjlove.github.io/sb/ico/min-free.svg
+[hot Icon]: https://jaywcjlove.github.io/sb/ico/min-hot.svg
+[tuijian Icon]: https://jaywcjlove.github.io/sb/ico/min-tuijian.svg
+[bibei Icon]: https://jaywcjlove.github.io/sb/ico/min-bibei.svg
+[red Icon]: https://jaywcjlove.github.io/sb/star/red.svg
+[app-store Icon]: https://jaywcjlove.github.io/sb/ico/min-app-store.svg
+[star0 Icon]: https://jaywcjlove.github.io/sb/star/red0.svg
+[star1 Icon]: https://jaywcjlove.github.io/sb/star/red1.svg
+[star2 Icon]: https://jaywcjlove.github.io/sb/star/red2.svg
+[star3 Icon]: https://jaywcjlove.github.io/sb/star/red3.svg
+[star4 Icon]: https://jaywcjlove.github.io/sb/star/red4.svg
+[star5 Icon]: https://jaywcjlove.github.io/sb/star/red5.svg
