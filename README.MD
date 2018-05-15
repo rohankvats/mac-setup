@@ -1,10 +1,4 @@
-# Mac OS X Dev Setup
-
 <div align="center">
-  <a href="https://github.com/rohankvats/mac-setup">
-    <img src="https://user-images.githubusercontent.com/35331661/37242209-c5d740cc-2465-11e8-92b3-e6d786e98dda.jpg" width="125px">
-  </a>
-  <br>
   <h1> Mac Setup</h1>
   <p>
     <em>Front End Web Development Setup for  macOS</em>
@@ -17,7 +11,7 @@
       <img src="https://img.shields.io/github/forks/rohankvats/mac-setup.svg" /> 
     </a>
     <a href="https://github.com/rohankvats/mac-setup">
-      <img src="https://img.shields.io/badge/macOS-10.13.4-blue.svg" /> 
+      <img src="https://img.shields.io/badge/macOS-10.13.3-blue.svg" /> 
     </a>
     <a href="https://github.com/rohankvats/mac-setup/commits/master">
       <img src="https://img.shields.io/github/last-commit/rohankvats/mac-setup.svg" />
@@ -44,16 +38,16 @@ This document describes how I set up my developer environment on a new MacBook o
 - [Vim](#vim)
 - [Node.js](#nodejs)
 - [Apps](#apps)
-    - [Note-taking](#Note-taking)
-    - [IDEs](IDEs)
-    - [Developer Utilities](#Developer-Utilities)
-    - [Regular Expression Editors](#Regular-Expression-Editors)
-    - API Development and Analysis
-    - Virtualization
-    - Remote Login Software
-    - Quality of Life Improvements
-    - System Related Tools
-    - Gaming Software
+    - [Note-taking](https://github.com/rohankvats/mac-setup#note-taking)
+    - [IDEs](https://github.com/rohankvats/mac-setup#ides)
+    - [Developer Utilities](https://github.com/rohankvats/mac-setup#developer-utilities)
+    - [Regular Expression Editors](https://github.com/rohankvats/mac-setup#regular-expression-editors)
+    - [API Development and Analysis](https://github.com/rohankvats/mac-setup#api-development-and-analysis)
+    - [Virtualization](https://github.com/rohankvats/mac-setup#virtualization)
+    - [Remote Login Software](https://github.com/rohankvats/mac-setup#remote-login-software)
+    - [Quality of Life Improvements](https://github.com/rohankvats/mac-setup#quality-of-life-improvements)
+    - [System Related Tools](https://github.com/rohankvats/mac-setup#system-related-tools)
+    - [Gaming Software](https://github.com/rohankvats/mac-setup#gaming-software)
 ---
  
 
@@ -361,50 +355,7 @@ We also need to tell npm where to find the Xcode Command Line Tools, by running:
 
     $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
-Node modules are installed locally in the `node_modules` folder of each project by default, but there are at least two that are worth installing globally. Those are [CoffeeScript](http://coffeescript.org/) and [Grunt](http://gruntjs.com/):
-
-    $ npm install -g coffee-script
-    $ npm install -g grunt-cli
-
-### Npm usage
-
-To install a package:
-
-    $ npm install <package> # Install locally
-    $ npm install -g <package> # Install globally
-
-To install a package and save it in your project's `package.json` file:
-
-    $ npm install <package> --save
-
-To see what's installed:
-
-    $ npm list # Local
-    $ npm list -g # Global
-
-To find outdated packages (locally or globally):
-
-    $ npm outdated [-g]
-
-To upgrade all or a particular package:
-
-    $ npm update [<package>]
-
-To uninstall a package:
-
-    $ npm uninstall <package>
-
-## JSHint
-
-JSHint is a JavaScript developer's best friend. 
-
-If the extra credit assignment to install Sublime Package Manager was completed, JSHint can be run as part of Sublime Text. 
-
-Install JSHint via npm (global install preferred)
-
-    $ npm install -g jshint
-
-Follow additional instructions on the [JSHint Package Manager page](https://sublime.wbond.net/packages/JSHint) or [build it manually](https://github.com/jshint/jshint).
+Node modules are installed locally in the `node_modules` folder of each project by default.
 
 ## Projects folder
 This really depends on how you want to organize your files, but I like to put all my personal version-controlled projects in `~/Projects` an d Other organisation projects I may have, or things not yet under version control in `~/<Company-name>`.
@@ -428,12 +379,12 @@ Here is a quick list of some apps I use, and that you might find useful as well:
 
 #### IDEs
 
-- [Atom](https://atom.io/): Hackable text editor for the 21st century made by GitHub. Atom Plugins. star 4 Open-Source Software Freeware hot Recommend must-have
 * [Visual Studio Code](https://code.visualstudio.com/) - Microsoft's free & open-source editor, TypeScript friendly, [VSCode Plugins](editor-plugin.md#vscode-plugin). [![Open-Source Software][OSS Icon]](https://github.com/Microsoft/vscode) ![Freeware][Freeware Icon] ![hot][hot Icon]
 * [WebStorm](http://www.jetbrains.com/webstorm/) - The smartest JavaScript IDE by JetBrains. **FREE** for Students, check [here](https://www.jetbrains.com/student/) for more info. ![hot][hot Icon] ![Recommend][tuijian Icon]
     * [NodeJS Plugin](https://plugins.jetbrains.com/plugin/6098-nodejs) - `Node.js` integration. You definitely need this, quite a few features require it.
     * [EditorConfig Plugin](https://plugins.jetbrains.com/plugin/7294-editorconfig) - JetBrains IDE plugin supporting the EditorConfig standard.
     * [Material Theme UI Plugin](https://plugins.jetbrains.com/plugin/8006-material-theme-ui) - Provides 3 modes, nice and clean.
+* [Atom](https://atom.io/): Hackable text editor for the 21st century made by GitHub. Atom Plugins. star 4 Open-Source Software Freeware hot Recommend must-have
 
 #### Developer Utilities
 
